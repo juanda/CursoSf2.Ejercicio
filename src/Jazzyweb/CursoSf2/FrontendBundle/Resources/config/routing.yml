@@ -1,0 +1,3 @@
+jw_curso_sf2_frontend_homepage:
+    path:     /hello/{name}
+    defaults: { _controller: JwCursoSf2FrontendBundle:Default:index }
