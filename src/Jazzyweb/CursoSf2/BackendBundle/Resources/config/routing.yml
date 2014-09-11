@@ -1,3 +1,25 @@
-jw_curso_sf2_backend_homepage:
-    path:     /hello/{name}
-    defaults: { _controller: JwCursoSf2BackendBundle:Default:index }
+jw_curso_sf2_backend_gestion_iframes:
+    path:     /iframes.archivos/gestion
+    defaults: { _controller: JwCursoSf2BackendBundle:GestionIframesArchivos:index }
+
+
+jw_curso_sf2_backend_listar_iframes:
+    path:     /iframes.archivos/listar
+    defaults: { _controller: JwCursoSf2BackendBundle:GestionIframesArchivos:index }
+
+
+jw_curso_sf2_backend_aniadir_iframe:
+    path:     /iframes.archivos/aniadir
+    defaults: { _controller: JwCursoSf2BackendBundle:GestionIframesArchivos:index }
+
+jw_curso_sf2_backend_ver_iframe:
+    path:     /iframes.archivos/ver/{nombre}
+    defaults: { _controller: JwCursoSf2BackendBundle:GestionIframesArchivos:index }
+
+jw_curso_sf2_backend_borrar_iframe:
+    path:     /iframes.archivos/borrar/{nombre}
+    defaults: { _controller: JwCursoSf2BackendBundle:GestionIframesArchivos:index }
+
+jw_curso_sf2_backend_modificar_iframe:
+    path:     /iframes.archivos/modificar/{nombre}
+    defaults: { _controller: JwCursoSf2BackendBundle:GestionIframesArchivos:index }

@@ -4,5 +4,5 @@ jw_curso_sf2_frontend:
 
 jw_curso_sf2_backend:
     resource: "@JwCursoSf2BackendBundle/Resources/config/routing.yml"
-    prefix:   /
+    prefix:   /backend
 

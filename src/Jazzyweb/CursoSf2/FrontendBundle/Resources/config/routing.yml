@@ -1,3 +1,11 @@
-jw_curso_sf2_frontend_homepage:
-    path:     /hello/{name}
-    defaults: { _controller: JwCursoSf2FrontendBundle:Default:index }
+jw_curso_sf2_frontend_iframe:
+    path:     /{iframe}
+    defaults: { _controller: JwCursoSf2FrontendBundle:IframeArchivo:showIframe }
+
+jw_curso_sf2_frontend_iframes:
+    path:     /iframes/{iframe_string}
+    defaults: { _controller: JwCursoSf2FrontendBundle:IframeArchivo:showIframes }
+
+jw_curso_sf2_frontend_all_iframes:
+    path:     /iframes
+    defaults: { _controller: JwCursoSf2FrontendBundle:IframeArchivo:showAllIframes }
