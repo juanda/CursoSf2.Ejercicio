@@ -1,0 +1,37 @@
+{% extends '::base.html.twig' %}
+
+{% block body %}
+    {% block banners %}
+        <div id="banners">
+            BANNERS
+        </div>
+    {% endblock banners %}
+
+    {% block menu %}
+        <div id="menu">
+            <ul>
+                <li><a href="{{ url('jw_curso_sf2_backend_gestion_iframes') }}">Gestionar iframes</a></li>
+                <li>
+                    Ver items
+                    <ul>
+                        <li><a href="{{ url('jw_curso_sf2_backend_ver_iframe', {'iframe': 'iframe_1.html'}) }}">iframe_1.html</a> </li>
+                        <li><a href="{{ url('jw_curso_sf2_backend_ver_iframe', {'iframe': 'iframe_2.html'}) }}">iframe_2.html</a> </li>
+                        <li><a href="{{ url('jw_curso_sf2_backend_ver_iframe', {'iframe': 'iframe_3.html'}) }}">iframe_3.html</a> </li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    {% endblock menu %}
+
+    {% block contenido %}
+        <div id="contenido">
+            CONTENIDO
+        </div>
+    {% endblock contenido%}
+
+    {% block pie %}
+        <div id="pie">
+            <p>Desarrollo de un sencillo gestor de Iframes como ejercicio del curso de introducción a Symfony2</p>
+        </div>
+    {% endblock pie %}
+{% endblock body %}

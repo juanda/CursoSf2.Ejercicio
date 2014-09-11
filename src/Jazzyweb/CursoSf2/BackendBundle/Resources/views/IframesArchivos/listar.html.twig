@@ -1,1 +1,27 @@
-<h1>Listar</h1>
+{% extends 'JwCursoSf2BackendBundle::layout.html.twig' %}
+
+{% block contenido %}
+    <h1>Listar</h1>
+
+    <div id="menu_gestion">
+        {% include 'JwCursoSf2BackendBundle:IframesArchivos:partials/menu_gestion.html.twig' %}
+    </div>
+
+    <div id="lista_iframes">
+        <table border="1">
+            <tr>
+                <th>Iframe</th>
+                <th>acciones</th>
+            </tr>
+            <tr>
+                <td>iframe_1.html</td>
+                <td>
+                    <a href="{{ url('jw_curso_sf2_backend_ver_iframe', {'iframe': 'iframe_1.html'})  }}">Ver</a>
+                    |<a href="{{ url('jw_curso_sf2_backend_modificar_iframe', {'iframe': 'iframe_1.html'}) }}">Modificar</a>
+                    |<a href="{{ url('jw_curso_sf2_backend_borrar_iframe', {'iframe': 'iframe_1.html'})}}">Borrar</a>
+                </td>
+
+            </tr>
+        </table>
+    </div>
+{% endblock contenido %}
