@@ -3,7 +3,7 @@
 {% block contenido_gestion %}
     <h2>Modificar</h2>
 
-    <form id="formIframe" method="post" action="{{ url('jw_curso_sf2_backend_aniadir_iframe') }}"  novalidate="novalidate" {{ form_enctype(formIframe) }}>
+    <form id="formIframe" method="post" action="{{ url('jw_curso_sf2_backend_modificar_iframe', {'iframe': iframe}) }}"  novalidate="novalidate" {{ form_enctype(formIframe) }}>
         {{ form(formIframe) }}
     </form>
 

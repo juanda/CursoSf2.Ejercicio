@@ -64,10 +64,13 @@ class GestionIframesArchivosController extends Controller
         return $this->render('JwCursoSf2BackendBundle:IframesArchivos:borrar.html.twig', array('iframe' => $iframe, 'result' => $result));
     }
 
-    public function modificarAction(Request $request, $iframe)
+    public function modificarAction(Request $request)
     {
         $iframeObject = new Iframe();
-        $iframeObject->setNombre($iframe);
+
+        $pathinfo = pathinfo($iframe = $request->get('iframe'));
+
+        $iframeObject->setNombre($pathinfo['filename']);
 
         $formIframe = $this->createForm(new IframeType(), $iframeObject);
 
@@ -75,13 +78,14 @@ class GestionIframesArchivosController extends Controller
 
         if($formIframe->isValid()){
 
-            $iframe->setNombreArchivo($iframeObject->getNombre(). '.html');
+            $iframeObject->setNombreArchivo($iframeObject->getNombre(). '.html');
             $this->upload($iframeObject, false);
 
             return $this->redirect($this->generateUrl('jw_curso_sf2_backend_ver_iframe', array('iframe' => $iframeObject->getNombreArchivo())));
         }
 
-        return $this->render('JwCursoSf2BackendBundle:IframesArchivos:modificar.html.twig', array('formIframe' => $formIframe->createView()));
+        return $this->render('JwCursoSf2BackendBundle:IframesArchivos:modificar.html.twig',
+            array('formIframe' => $formIframe->createView(), 'iframe' => $iframeObject->getNombre()));
     }
 
     protected function getListaIframes(){
@@ -103,8 +107,10 @@ class GestionIframesArchivosController extends Controller
 
         $uploadDir = $this->container->getParameter('iframe_dir');
 
-        if(file_exists($uploadDir . DIRECTORY_SEPARATOR . $iframe->getNombreArchivo())){
-            $iframe->setNombreArchivo($iframe->getNombre() . uniqid(). '.html');
+        if($new){
+            if(file_exists($uploadDir . DIRECTORY_SEPARATOR . $iframe->getNombreArchivo())){
+                $iframe->setNombreArchivo($iframe->getNombre() . uniqid(). '.html');
+            }
         }
 
         $iframe->getFile()->move(
