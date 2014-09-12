@@ -1,0 +1,5 @@
+<ul>
+    {% for iframe in iframes %}
+        <li><a href="{{ url('jw_curso_sf2_backend_ver_iframe', {'iframe': iframe }) }}">{{ iframe }}</a> </li>
+    {% endfor %}
+</ul>

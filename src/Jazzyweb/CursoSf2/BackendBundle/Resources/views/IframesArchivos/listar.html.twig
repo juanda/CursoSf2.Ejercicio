@@ -1,27 +1,37 @@
 {% extends 'JwCursoSf2BackendBundle::layout.html.twig' %}
 
-{% block contenido %}
-    <h1>Listar</h1>
-
-    <div id="menu_gestion">
-        {% include 'JwCursoSf2BackendBundle:IframesArchivos:partials/menu_gestion.html.twig' %}
-    </div>
-
+{% block contenido_gestion %}
+    <h2>Listar</h2>
     <div id="lista_iframes">
         <table border="1">
             <tr>
                 <th>Iframe</th>
                 <th>acciones</th>
             </tr>
+            {% for iframe in iframes %}
             <tr>
-                <td>iframe_1.html</td>
+                <td>{{ iframe }}</td>
                 <td>
-                    <a href="{{ url('jw_curso_sf2_backend_ver_iframe', {'iframe': 'iframe_1.html'})  }}">Ver</a>
-                    |<a href="{{ url('jw_curso_sf2_backend_modificar_iframe', {'iframe': 'iframe_1.html'}) }}">Modificar</a>
-                    |<a href="{{ url('jw_curso_sf2_backend_borrar_iframe', {'iframe': 'iframe_1.html'})}}">Borrar</a>
+                    <a href="{{ url('jw_curso_sf2_backend_ver_iframe', {'iframe': iframe})  }}">Ver</a>
+                    |<a href="{{ url('jw_curso_sf2_backend_modificar_iframe', {'iframe': iframe}) }}">Modificar</a>
+                    |<a id="btnBorrar" onclick="preguntarBorrado('{{ url('jw_curso_sf2_backend_borrar_iframe', {'iframe': iframe})}}')" href="#">Borrar</a>
                 </td>
-
             </tr>
+            {% endfor %}
         </table>
     </div>
-{% endblock contenido %}
+{% endblock %}
+
+
+{% block javascripts %}
+
+
+    <script>
+        function preguntarBorrado(url_borrar){
+            if(confirm('¿Estás seguro?')){
+                window.open(url_borrar);
+            }
+        }
+    </script>
+
+{% endblock %}

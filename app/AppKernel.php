@@ -18,6 +18,7 @@ class AppKernel extends Kernel
             new Sensio\Bundle\FrameworkExtraBundle\SensioFrameworkExtraBundle(),
             new Jazzyweb\CursoSf2\BackendBundle\JwCursoSf2BackendBundle(),
             new Jazzyweb\CursoSf2\FrontendBundle\JwCursoSf2FrontendBundle(),
+            new RaulFraile\Bundle\LadybugBundle\RaulFraileLadybugBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {

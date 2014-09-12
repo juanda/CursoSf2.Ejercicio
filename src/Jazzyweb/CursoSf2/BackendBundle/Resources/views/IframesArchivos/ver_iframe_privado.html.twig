@@ -1,0 +1,22 @@
+{% extends 'JwCursoSf2BackendBundle::layout.html.twig' %}
+
+{% block contenido %}
+    <h1>Ver</h1>
+
+    <iframe onload="loadIframe()" id="ver_iframe"  width="800" height="500" scrolling="auto" frameborder="1">
+        </iframe>
+
+{% endblock contenido %}
+
+{% block javascripts %}
+    <script type="text/javascript">
+
+        function loadIframe(){
+            var iframe = document.getElementById('ver_iframe'),
+            iframedoc = iframe.contentDocument || iframe.contentWindow.document;
+
+            iframedoc.body.innerHTML = '<html><body><h1>Hello world</h1></body></html>';
+        }
+    </script>
+
+{% endblock %}

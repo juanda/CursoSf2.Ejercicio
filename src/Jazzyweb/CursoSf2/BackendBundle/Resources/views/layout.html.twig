@@ -13,11 +13,7 @@
                 <li><a href="{{ url('jw_curso_sf2_backend_gestion_iframes') }}">Gestionar iframes</a></li>
                 <li>
                     Ver items
-                    <ul>
-                        <li><a href="{{ url('jw_curso_sf2_backend_ver_iframe', {'iframe': 'iframe_1.html'}) }}">iframe_1.html</a> </li>
-                        <li><a href="{{ url('jw_curso_sf2_backend_ver_iframe', {'iframe': 'iframe_2.html'}) }}">iframe_2.html</a> </li>
-                        <li><a href="{{ url('jw_curso_sf2_backend_ver_iframe', {'iframe': 'iframe_3.html'}) }}">iframe_3.html</a> </li>
-                    </ul>
+                    {% render(controller('JwCursoSf2BackendBundle:GestionIframesArchivos:menuListaIframes')) %}
                 </li>
             </ul>
         </div>
@@ -25,7 +21,17 @@
 
     {% block contenido %}
         <div id="contenido">
-            CONTENIDO
+            <div id="menu_gestion">
+                {% block menu_gestion %}
+                    {% include 'JwCursoSf2BackendBundle:IframesArchivos:partials/menu_gestion.html.twig' %}
+                {% endblock %}
+            </div>
+
+            <div id="contenido_gestion">
+                {% block contenido_gestion %}
+
+                {% endblock %}
+            </div>
         </div>
     {% endblock contenido%}
 

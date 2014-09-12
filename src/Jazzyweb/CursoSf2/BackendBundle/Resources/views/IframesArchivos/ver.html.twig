@@ -1,5 +1,10 @@
 {% extends 'JwCursoSf2BackendBundle::layout.html.twig' %}
 
-{% block contenido %}
-    <h1>Ver</h1>
-{% endblock contenido %}
+{% block contenido_gestion %}
+    <h2>Ver</h2>
+
+    <iframe id="ver_iframe" src="{{ asset(iframe) }}"  width="800" height="500" scrolling="auto" frameborder="1">
+        El navegador no soporta iframes
+    </iframe>
+
+{% endblock %}

@@ -1,5 +1,10 @@
 {% extends 'JwCursoSf2BackendBundle::layout.html.twig' %}
 
-{% block contenido %}
-<h1>Añadir</h1>
-{% endblock contenido %}
+{% block contenido_gestion %}
+<h2>Añadir</h2>
+
+<form id="formIframe" method="post" action="{{ url('jw_curso_sf2_backend_aniadir_iframe') }}"  novalidate="novalidate" {{ form_enctype(formIframe) }}>
+      {{ form(formIframe) }}
+</form>
+
+{% endblock  %}
